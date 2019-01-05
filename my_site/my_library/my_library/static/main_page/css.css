@@ -1,0 +1,15 @@
+body {
+    /* background: white url("./images/multichester.jpg") no-repeat;background-size:100%; */
+}
+
+li{
+  /* url("{{ songs.album_set.cover }}") */
+}
+table, th, td {
+    background-color: hsla(60, 100%, 80%, 25%);
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}

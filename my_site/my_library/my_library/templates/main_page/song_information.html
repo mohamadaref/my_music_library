@@ -1,0 +1,28 @@
+<h1>{{ song_info.music_name }}</h1>
+<style>
+
+  a:link{
+    color:blue;
+    text-decoration: none;
+  }
+
+  a:visited{
+      color:purple;
+      text-decoration: none;
+  }
+
+  a:active{
+    color:yellow;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color:red;
+    text-decoration: none;
+  }
+</style>
+<ol>
+  <li>ALBUM : <a href="/main_page/{{ song_info.album }}" target="_self" title="go to '{{ songs.album }}' album">{{ song_info.album }}</li></a><br/>
+  <li>MUSICIAN : {{ song_info.musician }}</li><br/>
+  <form action="/main_page/" method="get"><button>home</button></form>
+</ol>

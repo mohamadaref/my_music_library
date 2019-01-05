@@ -1,0 +1,93 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_page/css.css' %}">
+<Doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="main_page/css.css">
+  <title>library_main_page</title>
+  <style>
+
+    a:link{
+      color:blue;
+      text-decoration: none;
+    }
+
+    a:visited{
+        color:purple;
+        text-decoration: none;
+    }
+
+    a:active{
+      color:yellow;
+      text-decoration: none;
+    }
+
+    a:hover{
+      color:red;
+      text-decoration: none;
+    }
+
+    body{
+      background-image:url('../../static/main_page/images/wallpaper4');
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+
+  </style>
+</head>
+<body>
+  <h1 style="color:red;text-align:center;">welcome to my <mark style="color:blue">music</mark> library</h1>
+  <blockquote style="text-align:center">
+  <q>
+    this is a music library used for downloading best musics in the world
+  </q>
+  </blockquote>
+
+
+{% if songs_list %}
+    <table align="center">
+      <tr>
+        <th>music_name</th>
+        <th>musician_name</th>
+        <th>album_name</th>
+        <th>album_cover</th>
+      </tr>
+    {% for songs in songs_list %}
+      <tr>
+        <td>
+          <li><a href="/main_page/{{ songs.music_name }}/" target="_self" title="download '{{ songs.music_name }}' song">{{ songs.music_name }}
+          <br/>
+        </td>
+        <td>
+          <a href="{% url 'musician_det' songs.musician %}" target="_blank" title="go to '{{ songs.musician }}' page">
+            {{ songs.musician }}
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'alb_det' songs.album %}" target="_self" title="go to '{{ songs.album }}' album">
+          {{ songs.album }}
+        </td>
+        <td align="center">
+          <a href="/main_page/{{ songs.album }}" target="_self" title="go to '{{ songs.album }}' album">
+            <img src="{% static "main_page/images/" %}{{ songs.album }}.jpg"  alt="Album's cover image" style="width:100px;height:100px;border:0;">
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No song is available.</p>
+{% endif %}
+
+<br/>
+<br/>
+<br/>
+
+<address>
+  Written by : Mohamad-Aref-Shahidani<br/>
+  Visit us at :<br/>
+  www.aliismyimam@gmail.com<br/>
+  Isfahan,Iran<br/>
+</address>
+</body>
+</html>

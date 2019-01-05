@@ -1,0 +1,15 @@
+{% load static %}
+<h1>{{ songs.album_name }}</h1>
+<ul>
+  <li><img src="{% static "main_page/images/" %}{{ songs.album_name }}.jpg"  alt="Album's cover image" style="width:150px;height:150px;border:0;"></li><br/>
+  <li>MUSICIAN : {{ songs.musician }}</li><br/>
+  <li>Tracks : <br/> <br/> </li>
+  <ol>
+  {% for songs in songs_list_of_album %}
+
+    <li><a href="/main_page/{{ songs.album }}/{{ songs.music_name }}/">{{ songs.music_name }}</a></li><br/>
+
+  {% endfor %}
+  </ol>
+<form action="/main_page/" method="get"><button>home</button></form>
+</ul>
